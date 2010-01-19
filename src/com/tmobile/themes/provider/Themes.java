@@ -1,6 +1,6 @@
 package com.tmobile.themes.provider;
 
-import com.tmobile.themes.Constants;
+import com.tmobile.themes.ThemeManager;
 
 import android.Manifest;
 import android.content.ContentValues;
@@ -82,14 +82,14 @@ public class Themes {
 
     /**
      * Request a theme change by broadcasting to the ThemeManager. Must hold
-     * permission {@link ThemeManager#PERMISSION_CHANGE_THEME}.
+     * permission {@link Constants#PERMISSION_CHANGE_THEME}.
      */
     public static void changeTheme(Context context, Uri themeUri) {
-        changeTheme(context, new Intent(Constants.ACTION_CHANGE_THEME, themeUri));
+        changeTheme(context, new Intent(ThemeManager.ACTION_CHANGE_THEME, themeUri));
     }
 
     public static void changeStyle(Context context, Uri styleUri) {
-        changeTheme(context, new Intent(Constants.ACTION_CHANGE_THEME).setDataAndType(styleUri,
+        changeTheme(context, new Intent(ThemeManager.ACTION_CHANGE_THEME).setDataAndType(styleUri,
                 ThemeColumns.STYLE_CONTENT_ITEM_TYPE));
     }
 

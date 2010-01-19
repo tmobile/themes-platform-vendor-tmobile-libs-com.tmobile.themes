@@ -1,6 +1,6 @@
 package com.tmobile.themes.provider;
 
-import com.tmobile.themes.Constants;
+import com.tmobile.themes.ProfileManager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -79,10 +79,10 @@ public class Profiles {
 
     /**
      * Request a profile change by broadcasting to the ProfileManager. Must hold
-     * permission {@link ProfileManager#PERMISSION_CHANGE_PROFILE}.
+     * permission {@link Constants#PERMISSION_CHANGE_PROFILE}.
      */
     public static void changeProfile(Context context, Uri profileUri) {
-        context.sendOrderedBroadcast(new Intent(Constants.ACTION_CHANGE_PROFILE,
+        context.sendOrderedBroadcast(new Intent(ProfileManager.ACTION_CHANGE_PROFILE,
                 profileUri), null);
     }
 

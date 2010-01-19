@@ -2,13 +2,7 @@ package com.tmobile.themes;
 
 import android.content.Intent;
 
-public interface Constants {
-
-    public static final String PERMISSION_CHANGE_PROFILE = "com.tmobile.permission.CHANGE_PROFILE";
-
-    public static final String ACTION_CHANGE_PROFILE = "com.tmobile.intent.action.CHANGE_PROFILE";
-
-    public static final String ACTION_PROFILE_CHANGED = "com.tmobile.intent.action.PROFILE_CHANGED";
+public interface ThemeManager {
 
     /**
      * Commonly passed between activities.
