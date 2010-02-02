@@ -1,5 +1,43 @@
-package com.tmobile.themes.provider;
+/*
+TERMS AND CONDITIONS
 
+This software code is (C) 2009 T-Mobile USA, Inc. All Rights Reserved.
+
+Unauthorized redistribution or further use of this material is prohibited
+without the express permission of T-Mobile USA, Inc. and will be prosecuted
+to the fullest extent of the law.
+
+Removal or modification of these Terms and Conditions from the source or
+binary code of this software is prohibited.  In the event that redistribution
+of the source or binary code for this software is approved by T-Mobile USA, Inc.,
+these Terms and Conditions and the above copyright notice must be reproduced in
+their entirety and in all circumstances.
+
+No name or trademarks of T-Mobile USA, Inc., or of its parent company, Deutsche
+Telekom AG or any Deutsche Telekom or T-Mobile entity, may be used to endorse
+or promote products derived from this software without specific prior written
+permission.
+
+THIS SOFTWARE IS PROVIDED ON AN "AS IS" AND "WITH ALL FAULTS" BASIS AND WITHOUT
+WARRANTIES OF ANY KIND.  ALL EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS OR
+WARRANTIES, INCLUDING ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE, OR NON-INFRINGEMENT CONCERNING THIS SOFTWARE, ITS SOURCE OR
+BINARY CODE OR ANY DERIVATIVES THEREOF ARE HEREBY EXCLUDED.  T-MOBILE USA, INC.
+AND ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE AS A
+RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR ITS DERIVATIVES.  IN
+NO EVENT WILL T-MOBILE USA, INC. OR ITS LICENSORS BE LIABLE FOR LOST REVENUE, PROFIT
+OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE
+DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT OF
+THE USE OF OR INABILITY TO USE THIS SOFTWARE, EVEN IF T-MOBILE USA, INC. HAS BEEN
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  
+
+THESE TERMS AND CONDITIONS APPLY SOLELY AND EXCLUSIVELY TO THE USE, MODIFICATION
+OR DISTRIBUTION OF THIS SOFTWARE, ITS SOURCE OR BINARY CODE OR ANY DERIVATIVES
+THEREOF, AND ARE SEPARATE FROM ANY WRITTEN WARRANTY THAT MAY BE PROVIDED WITH A
+DEVICE YOU PURCHASE FROM T-MOBILE USA, INC., AND TO THE EXTENT PERMITTED BY LAW.  
+*/
+
+package com.tmobile.themes.provider;
 
 import com.tmobile.themes.provider.Profiles.ProfileColumns;
 
@@ -8,8 +46,24 @@ import android.database.Cursor;
 import android.net.Uri;
 
 /**
- * Simple data access object designed to wrap a cursor returned from any of the
- * Profiles class APIs.  Can be used efficiently with a custom CursorAdapter.
+ * <p>Simple data access object designed to wrap a cursor returned from any of the
+ * Profiles class APIs.  Can be used efficiently with a custom CursorAdapter.</p>
+ * 
+ * <h2>Usage</h2>
+ * <p>Here is an example of looping through a Cursor with ProfileItem:</p>
+ * <pre class="prettyprint">
+ *      Cursor c = Profiles.listProfiles(myContext);
+ *      ProfileItem item = ProfileItem(c);
+ *      if (item != null) {
+ *          try {
+ *              do {
+ *                  //Do something with the item
+ *              } while (c.moveToNext());
+ *          } finally {
+ *              item.close();
+ *          }
+ *      }
+ * </pre>
  */
 public class ProfileItem extends AbstractDAOItem {
     private int mColumnId;
@@ -70,46 +124,80 @@ public class ProfileItem extends AbstractDAOItem {
         return Profiles.getProfileUri(context, getId());
     }
 
+    /**
+     * @return the profile id
+     */
     public int getId() {
         return mCursor.getInt(mColumnId);
     }
 
+    /**
+     * @return the profile name
+     */
     public String getName() {
         return mCursor.getString(mColumnName);
     }
 
+    /**
+     * @return the theme Uri
+     */
     public Uri getThemeUri() {
         return parseUriNullSafe(mCursor.getString(mColumnThemeUri));
     }
     
+    /**
+     * @return the appearance Uri
+     */
     public Uri getAppearanceUri() {
         return parseUriNullSafe(mCursor.getString(mColumnAppearanceUri));
     }
 
+    /**
+     * @return the ringtone Uri
+     */
     public Uri getRingtoneUri() {
         return parseUriNullSafe(mCursor.getString(mColumnRingtoneUri));
     }
 
+    /**
+     * @return the notification Uri
+     */
     public Uri getNotificationUri() {
         return parseUriNullSafe(mCursor.getString(mColumnNotificationUri));
     }
 
+    /**
+     * @return the wallpaper Uri
+     */
     public Uri getWallpaperUri() {
         return parseUriNullSafe(mCursor.getString(mColumnWallpaperUri));
     }
 
+    /**
+     * @return the lock screen wallpaper Uri
+     */
     public Uri getLockWallpaperUri() {
         return parseUriNullSafe(mCursor.getString(mColumnLockWallpaperUri));
     }
 
+    /**
+     * @return the scene id
+     */
     public int getSceneId() {
         return mCursor.getInt(mColumnSceneId);
     }
 
+    /**
+     * @return true if the profile is active
+     */
     public boolean isActive() {
         return mCursor.getInt(mColumnIsActive) != 0;
     }
     
+    /**
+     * @param profile the profile to compare
+     * @return true if the ids match
+     */
     public boolean equals(ProfileItem profile) {
         if (profile == null) {
             return false;
