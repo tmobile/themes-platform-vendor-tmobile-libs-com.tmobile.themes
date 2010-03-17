@@ -235,8 +235,10 @@ public class Themes {
         public static final String LOCK_WALLPAPER_URI = "lock_wallpaper_uri";
 
         public static final String RINGTONE_NAME = "ringtone_name";
+        public static final String RINGTONE_NAME_KEY = "ringtone_name_key";
         public static final String RINGTONE_URI = "ringtone_uri";
         public static final String NOTIFICATION_RINGTONE_NAME = "notif_ringtone_name";
+        public static final String NOTIFICATION_RINGTONE_NAME_KEY = "notif_ringtone_name_key";
         public static final String NOTIFICATION_RINGTONE_URI = "notif_ringtone_uri";
 
         public static final String THUMBNAIL_URI = "thumbnail_uri";
