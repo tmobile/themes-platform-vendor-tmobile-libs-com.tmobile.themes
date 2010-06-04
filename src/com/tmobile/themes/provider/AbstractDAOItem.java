@@ -57,8 +57,8 @@ public abstract class AbstractDAOItem {
      * @param c a valid {@link Cursor} for the {@link AbstractDAOItem} type.
      */
     public AbstractDAOItem(Cursor c) {
-        if (c == null || c.getCount() == 0) {
-            throw new IllegalArgumentException("Cursor cannot be null or empty");
+        if (c == null) {
+            throw new IllegalArgumentException("Cursor cannot be null");
         }
         mCursor = c;
     }
