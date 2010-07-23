@@ -76,6 +76,7 @@ public class ProfileItem extends AbstractDAOItem {
     private int mColumnLockWallpaperUri;
     private int mColumnSceneId;
     private int mColumnIsActive;
+    private int mColumnIsRestrictedScene;
 
     private static final AbstractDAOItem.Creator<ProfileItem> CREATOR =
             new AbstractDAOItem.Creator<ProfileItem>() {
@@ -114,6 +115,7 @@ public class ProfileItem extends AbstractDAOItem {
         mColumnLockWallpaperUri = c.getColumnIndex(ProfileColumns.LOCK_WALLPAPER_URI);
         mColumnSceneId = c.getColumnIndex(ProfileColumns.SCENE_ID);
         mColumnIsActive = c.getColumnIndex(ProfileColumns.IS_ACTIVE);
+        mColumnIsRestrictedScene = c.getColumnIndex(ProfileColumns.IS_RESTRICTED);
     }
 
     /**
@@ -192,6 +194,10 @@ public class ProfileItem extends AbstractDAOItem {
      */
     public boolean isActive() {
         return mCursor.getInt(mColumnIsActive) != 0;
+    }
+
+    public boolean isRestrictedScene() {
+        return mCursor.getInt(mColumnIsRestrictedScene) != 0;
     }
     
     /**
