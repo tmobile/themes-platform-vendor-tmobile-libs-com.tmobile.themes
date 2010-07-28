@@ -68,6 +68,7 @@ import android.net.Uri;
 public class ProfileItem extends AbstractDAOItem {
     private int mColumnId;
     private int mColumnName;
+    private int mColumnDescription;
     private int mColumnThemeUri;
     private int mColumnAppearanceUri;
     private int mColumnRingtoneUri;
@@ -77,6 +78,7 @@ public class ProfileItem extends AbstractDAOItem {
     private int mColumnSceneId;
     private int mColumnIsActive;
     private int mColumnIsRestrictedScene;
+    private int mColumnIsPreload;
 
     private static final AbstractDAOItem.Creator<ProfileItem> CREATOR =
             new AbstractDAOItem.Creator<ProfileItem>() {
@@ -107,6 +109,7 @@ public class ProfileItem extends AbstractDAOItem {
         super(c);
         mColumnId = c.getColumnIndex(ProfileColumns._ID);
         mColumnName = c.getColumnIndex(ProfileColumns.NAME);
+        mColumnDescription = c.getColumnIndex(ProfileColumns.DESCRIPTION);
         mColumnThemeUri = c.getColumnIndex(ProfileColumns.THEME_URI);
         mColumnAppearanceUri = c.getColumnIndex(ProfileColumns.APPEARANCE_URI);
         mColumnRingtoneUri = c.getColumnIndex(ProfileColumns.RINGTONE_URI);
@@ -116,6 +119,7 @@ public class ProfileItem extends AbstractDAOItem {
         mColumnSceneId = c.getColumnIndex(ProfileColumns.SCENE_ID);
         mColumnIsActive = c.getColumnIndex(ProfileColumns.IS_ACTIVE);
         mColumnIsRestrictedScene = c.getColumnIndex(ProfileColumns.IS_RESTRICTED);
+        mColumnIsPreload = c.getColumnIndex(ProfileColumns.IS_PRELOAD);
     }
 
     /**
@@ -138,6 +142,13 @@ public class ProfileItem extends AbstractDAOItem {
      */
     public String getName() {
         return mCursor.getString(mColumnName);
+    }
+
+    /**
+     * @return the profile description
+     */
+    public String getDescription() {
+        return mCursor.getString(mColumnDescription);
     }
 
     /**
@@ -198,6 +209,10 @@ public class ProfileItem extends AbstractDAOItem {
 
     public boolean isRestrictedScene() {
         return mCursor.getInt(mColumnIsRestrictedScene) != 0;
+    }
+
+    public boolean isPreload() {
+        return mCursor.getInt(mColumnIsPreload) != 0;
     }
     
     /**

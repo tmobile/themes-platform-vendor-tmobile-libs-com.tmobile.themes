@@ -167,6 +167,7 @@ public class Profiles {
 
         public static final String _ID = "_id";
         public static final String NAME = "name";
+        public static final String DESCRIPTION = "description";
         public static final String THEME_URI = "theme_uri";
         public static final String APPEARANCE_URI = "appearance_uri";
         public static final String RINGTONE_URI = "ringtone_uri";
@@ -176,8 +177,8 @@ public class Profiles {
         public static final String SCENE_ID = "scene_id";
         public static final String IS_ACTIVE = "is_active";
         public static final String IS_RESTRICTED = "is_restricted";
-
-        public static final String DEFAULT_SORT_ORDER = "name ASC";
+        public static final String IS_PRELOAD = "is_preload";
+        public static final String DEFAULT_SORT_ORDER = "is_active DESC, is_preload DESC, name ASC";
     }
 
 }
