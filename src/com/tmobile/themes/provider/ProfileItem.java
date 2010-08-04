@@ -75,6 +75,7 @@ public class ProfileItem extends AbstractDAOItem {
     private int mColumnNotificationUri;
     private int mColumnWallpaperUri;
     private int mColumnLockWallpaperUri;
+    private int mColumnCallFowardingNumber;
     private int mColumnSceneId;
     private int mColumnIsActive;
     private int mColumnIsRestrictedScene;
@@ -116,6 +117,7 @@ public class ProfileItem extends AbstractDAOItem {
         mColumnNotificationUri = c.getColumnIndex(ProfileColumns.NOTIFICATION_URI);
         mColumnWallpaperUri = c.getColumnIndex(ProfileColumns.WALLPAPER_URI);
         mColumnLockWallpaperUri = c.getColumnIndex(ProfileColumns.LOCK_WALLPAPER_URI);
+        mColumnCallFowardingNumber = c.getColumnIndex(ProfileColumns.CALL_FORWARDING_NUMBER);
         mColumnSceneId = c.getColumnIndex(ProfileColumns.SCENE_ID);
         mColumnIsActive = c.getColumnIndex(ProfileColumns.IS_ACTIVE);
         mColumnIsRestrictedScene = c.getColumnIndex(ProfileColumns.IS_RESTRICTED);
@@ -191,6 +193,13 @@ public class ProfileItem extends AbstractDAOItem {
      */
     public Uri getLockWallpaperUri() {
         return parseUriNullSafe(mCursor.getString(mColumnLockWallpaperUri));
+    }
+
+    /**
+     * @return the call forwarding number
+     */
+    public Uri getCallForwardingNumber() {
+        return parseUriNullSafe(mCursor.getString(mColumnCallFowardingNumber));
     }
 
     /**
