@@ -76,6 +76,7 @@ public class ProfileItem extends AbstractDAOItem {
     private int mColumnWallpaperUri;
     private int mColumnLockWallpaperUri;
     private int mColumnCallFowardingNumber;
+    private int mColumnEmailNotificationsOn;
     private int mColumnSceneId;
     private int mColumnIsActive;
     private int mColumnIsRestrictedScene;
@@ -118,6 +119,7 @@ public class ProfileItem extends AbstractDAOItem {
         mColumnWallpaperUri = c.getColumnIndex(ProfileColumns.WALLPAPER_URI);
         mColumnLockWallpaperUri = c.getColumnIndex(ProfileColumns.LOCK_WALLPAPER_URI);
         mColumnCallFowardingNumber = c.getColumnIndex(ProfileColumns.CALL_FORWARDING_NUMBER);
+        mColumnEmailNotificationsOn = c.getColumnIndex(ProfileColumns.EMAIL_NOTIFICATION_ON);
         mColumnSceneId = c.getColumnIndex(ProfileColumns.SCENE_ID);
         mColumnIsActive = c.getColumnIndex(ProfileColumns.IS_ACTIVE);
         mColumnIsRestrictedScene = c.getColumnIndex(ProfileColumns.IS_RESTRICTED);
@@ -198,8 +200,15 @@ public class ProfileItem extends AbstractDAOItem {
     /**
      * @return the call forwarding number
      */
-    public Uri getCallForwardingNumber() {
-        return parseUriNullSafe(mCursor.getString(mColumnCallFowardingNumber));
+    public String getCallForwardingNumber() {
+        return mCursor.getString(mColumnCallFowardingNumber);
+    }
+
+    /**
+     * @return true if email notifications are on
+     */
+    public boolean emailNotificationsOn() {
+        return mCursor.getInt(mColumnEmailNotificationsOn) == 1;
     }
 
     /**
