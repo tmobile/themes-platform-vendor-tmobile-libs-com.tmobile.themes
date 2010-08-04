@@ -80,6 +80,12 @@ public interface ThemeManager {
     public static final String EXTRA_THEME_EXISTING_URI = "com.tmobile.intent.extra.theme.EXISTING_URI";
 
     /**
+     * URI for the profile in which the current theme is associated. If null, we will apply against the
+     * currently applied profile.
+     */
+    public static final String EXTRA_THEME_PROFILE_URI = "com.tmobile.intent.extra.theme.THEME_PROFILE_URI";
+
+    /**
      * Boolean indicating whether the "extended" theme change API should be
      * supported. This API is a convenience for profile change and is not used
      * during normal theme or style changes.
