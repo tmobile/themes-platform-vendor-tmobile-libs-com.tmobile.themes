@@ -174,7 +174,7 @@ public class Profiles {
         public static final String NOTIFICATION_URI = "notification_uri";
         public static final String WALLPAPER_URI = "wallpaper_uri";
         public static final String LOCK_WALLPAPER_URI = "lock_wallpaper_uri";
-        public static final String CALL_FORWARDING_NUMBER = "call_forwarding_number";
+        public static final String CALL_FORWARDING_ENABLED = "call_forwarding_enabled";
         public static final String EMAIL_NOTIFICATION_ON = "email_notification_on";
         public static final String SCENE_ID = "scene_id";
         public static final String IS_ACTIVE = "is_active";
