@@ -80,7 +80,7 @@ public class ProfileItem extends AbstractDAOItem {
     private int mColumnSceneId;
     private int mColumnIsActive;
     private int mColumnIsRestrictedScene;
-    private int mColumnIsPreload;
+    private int mColumnPreloadId;
 
     private static final AbstractDAOItem.Creator<ProfileItem> CREATOR =
             new AbstractDAOItem.Creator<ProfileItem>() {
@@ -123,7 +123,7 @@ public class ProfileItem extends AbstractDAOItem {
         mColumnSceneId = c.getColumnIndex(ProfileColumns.SCENE_ID);
         mColumnIsActive = c.getColumnIndex(ProfileColumns.IS_ACTIVE);
         mColumnIsRestrictedScene = c.getColumnIndex(ProfileColumns.IS_RESTRICTED);
-        mColumnIsPreload = c.getColumnIndex(ProfileColumns.IS_PRELOAD);
+        mColumnPreloadId = c.getColumnIndex(ProfileColumns.PRELOAD_ID);
     }
 
     /**
@@ -230,7 +230,11 @@ public class ProfileItem extends AbstractDAOItem {
     }
 
     public boolean isPreload() {
-        return mCursor.getInt(mColumnIsPreload) != 0;
+        return mCursor.getInt(mColumnPreloadId) > 0;
+    }
+
+    public int getPreloadId() {
+        return mCursor.getInt(mColumnPreloadId);
     }
     
     /**

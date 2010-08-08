@@ -179,8 +179,8 @@ public class Profiles {
         public static final String SCENE_ID = "scene_id";
         public static final String IS_ACTIVE = "is_active";
         public static final String IS_RESTRICTED = "is_restricted";
-        public static final String IS_PRELOAD = "is_preload";
-        public static final String DEFAULT_SORT_ORDER = "is_active DESC, is_preload DESC, name ASC";
+        public static final String PRELOAD_ID = "preload_id";
+        public static final String DEFAULT_SORT_ORDER = "is_active DESC, preload_id DESC, name";
     }
 
 }
