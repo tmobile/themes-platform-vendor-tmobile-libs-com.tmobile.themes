@@ -59,7 +59,7 @@ public abstract class ProfileAdapter extends AbstractDAOItemAdapter<ProfileItem>
 
     private static Cursor loadProfiles(Activity context) {
         return context.managedQuery(Profiles.CONTENT_URI,
-                null, null, ProfileColumns.IS_ACTIVE + " DESC, " + ProfileColumns.NAME);
+                null, null, ProfileColumns.DEFAULT_SORT_ORDER);
     }
 
     @Override
