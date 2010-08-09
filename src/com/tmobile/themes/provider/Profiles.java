@@ -180,6 +180,12 @@ public class Profiles {
         public static final String IS_ACTIVE = "is_active";
         public static final String IS_RESTRICTED = "is_restricted";
         public static final String PRELOAD_ID = "preload_id";
+        public static final String AUTOSWITCH_TYPE = "autoswitch_type";
+        public static final String AUTOSWITCH_TIME_START = "time_start";
+        public static final String AUTOSWITCH_TIME_END = "time_end";
+        public static final String AUTOSWITCH_ENCODED_DOW = "encoded_dow";
+        public static final String AUTOSWITCH_LOCATION_GEOCODE = "location_geocode";
+        public static final String AUTOSWITCH_LOCATION_NAME = "location_name";
         public static final String DEFAULT_SORT_ORDER = "is_active DESC, preload_id DESC, name";
     }
 

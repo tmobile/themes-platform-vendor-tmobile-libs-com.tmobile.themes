@@ -81,6 +81,12 @@ public class ProfileItem extends AbstractDAOItem {
     private int mColumnIsActive;
     private int mColumnIsRestrictedScene;
     private int mColumnPreloadId;
+    private int mColumnAutoswitchType;
+    private int mColumnStartTime;
+    private int mColumnEndTime;
+    private int mColumnEncodedDow;
+    private int mColumnLocationGeocode;
+    private int mColumnLocationName;
 
     private static final AbstractDAOItem.Creator<ProfileItem> CREATOR =
             new AbstractDAOItem.Creator<ProfileItem>() {
@@ -124,6 +130,12 @@ public class ProfileItem extends AbstractDAOItem {
         mColumnIsActive = c.getColumnIndex(ProfileColumns.IS_ACTIVE);
         mColumnIsRestrictedScene = c.getColumnIndex(ProfileColumns.IS_RESTRICTED);
         mColumnPreloadId = c.getColumnIndex(ProfileColumns.PRELOAD_ID);
+        mColumnAutoswitchType = c.getColumnIndex(ProfileColumns.AUTOSWITCH_TYPE);
+        mColumnStartTime = c.getColumnIndex(ProfileColumns.AUTOSWITCH_TIME_START);
+        mColumnEndTime = c.getColumnIndex(ProfileColumns.AUTOSWITCH_TIME_END);
+        mColumnEncodedDow = c.getColumnIndex(ProfileColumns.AUTOSWITCH_ENCODED_DOW);
+        mColumnLocationGeocode = c.getColumnIndex(ProfileColumns.AUTOSWITCH_LOCATION_GEOCODE);
+        mColumnLocationName = c.getColumnIndex(ProfileColumns.AUTOSWITCH_LOCATION_NAME);
     }
 
     /**
@@ -236,7 +248,31 @@ public class ProfileItem extends AbstractDAOItem {
     public int getPreloadId() {
         return mCursor.getInt(mColumnPreloadId);
     }
-    
+
+    public int getAutoswitchType() {
+        return mCursor.getInt(mColumnAutoswitchType);
+    }
+
+    public int getEncodedDow() {
+        return mCursor.getInt(mColumnEncodedDow);
+    }
+
+    public int getStartTime() {
+        return mCursor.getInt(mColumnStartTime);
+    }
+
+    public int getEndTime() {
+        return mCursor.getInt(mColumnEndTime);
+    }
+
+    public String getLocationGeocode() {
+        return mCursor.getString(mColumnLocationGeocode);
+    }
+
+    public String getLocationName() {
+        return mCursor.getString(mColumnLocationName);
+    }
+
     /**
      * @param profile the profile to compare
      * @return true if the ids match
