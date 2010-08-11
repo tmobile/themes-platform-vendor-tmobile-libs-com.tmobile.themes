@@ -173,6 +173,7 @@ public class Profiles {
         public static final String RINGTONE_URI = "ringtone_uri";
         public static final String NOTIFICATION_URI = "notification_uri";
         public static final String WALLPAPER_URI = "wallpaper_uri";
+        public static final String LIVE_WALLPAPER_COMPONENT = "live_wallpaper_component";
         public static final String LOCK_WALLPAPER_URI = "lock_wallpaper_uri";
         public static final String CALL_FORWARDING_ENABLED = "call_forwarding_enabled";
         public static final String EMAIL_NOTIFICATION_ON = "email_notification_on";

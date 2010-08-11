@@ -41,6 +41,7 @@ package com.tmobile.themes.provider;
 
 import com.tmobile.themes.provider.Profiles.ProfileColumns;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
@@ -74,6 +75,7 @@ public class ProfileItem extends AbstractDAOItem {
     private int mColumnRingtoneUri;
     private int mColumnNotificationUri;
     private int mColumnWallpaperUri;
+    private int mColumnLiveWallpaperComponent;
     private int mColumnLockWallpaperUri;
     private int mColumnCallFowardingEnabled;
     private int mColumnEmailNotificationsOn;
@@ -123,6 +125,7 @@ public class ProfileItem extends AbstractDAOItem {
         mColumnRingtoneUri = c.getColumnIndex(ProfileColumns.RINGTONE_URI);
         mColumnNotificationUri = c.getColumnIndex(ProfileColumns.NOTIFICATION_URI);
         mColumnWallpaperUri = c.getColumnIndex(ProfileColumns.WALLPAPER_URI);
+        mColumnLiveWallpaperComponent = c.getColumnIndex(ProfileColumns.LIVE_WALLPAPER_COMPONENT);
         mColumnLockWallpaperUri = c.getColumnIndex(ProfileColumns.LOCK_WALLPAPER_URI);
         mColumnCallFowardingEnabled  = c.getColumnIndex(ProfileColumns.CALL_FORWARDING_ENABLED);
         mColumnEmailNotificationsOn = c.getColumnIndex(ProfileColumns.EMAIL_NOTIFICATION_ON);
@@ -207,6 +210,21 @@ public class ProfileItem extends AbstractDAOItem {
      */
     public Uri getLockWallpaperUri() {
         return parseUriNullSafe(mCursor.getString(mColumnLockWallpaperUri));
+    }
+
+    /**
+     * @return the live wallpaper ComponentName
+     */
+    public ComponentName getLiveWallpaperComponent() {
+        String comp = mCursor.getString(mColumnLiveWallpaperComponent);
+        if (comp != null) {
+            return ComponentName.unflattenFromString(comp);
+        }
+        return null;
+    }
+
+    public boolean usesLiveWallpaper() {
+        return getLiveWallpaperComponent() != null;
     }
 
     /**
