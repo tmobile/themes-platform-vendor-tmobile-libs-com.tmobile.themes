@@ -100,6 +100,7 @@ public interface ThemeManager {
     public static final String EXTRA_WALLPAPER_URI = "com.tmobile.intent.extra.theme.WALLPAPER_URI";
     public static final String EXTRA_DONT_SET_LOCK_WALLPAPER = "com.tmobile.intent.extra.theme.DONT_SET_LOCK_WALLPAPER";
     public static final String EXTRA_LOCK_WALLPAPER_URI = "com.tmobile.intent.extra.theme.LOCK_WALLPAPER_URI";
+    public static final String EXTRA_LIVE_WALLPAPER_COMPONENT = "com.tmobile.intent.extra.theme.LIVE_WALLPAPER_COMPONENT";
     public static final String EXTRA_RINGTONE_URI = "com.tmobile.intent.extra.theme.RINGTONE_URI";
     public static final String EXTRA_NOTIFICATION_RINGTONE_URI = "com.tmobile.intent.extra.theme.NOTIFICATION_RINGTONE_URI";
 
