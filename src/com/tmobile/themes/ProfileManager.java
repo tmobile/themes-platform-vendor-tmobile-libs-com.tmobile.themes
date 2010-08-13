@@ -55,6 +55,8 @@ public interface ProfileManager {
     public static final String ACTION_EXIT_RESTRICTED_PROFILE = "com.tmobile.intent.action.EXIT_RESTRICTED_PROFILE";
 
     public static final String ACTION_PROFILE_CHANGED = "com.tmobile.intent.action.PROFILE_CHANGED";
+
+    public static final String ACTION_APPLY_PROFILE = "com.tmobile.intent.action.ACTION_APPLY_PROFILE";
     
     /**
      * The Android ringtone manager returns a null Uri for silent. 
