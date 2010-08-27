@@ -57,6 +57,11 @@ public interface ProfileManager {
     public static final String ACTION_PROFILE_CHANGED = "com.tmobile.intent.action.PROFILE_CHANGED";
 
     public static final String ACTION_APPLY_PROFILE = "com.tmobile.intent.action.ACTION_APPLY_PROFILE";
+
+    public static final String ACTION_PICK_LOCATION = "com.tmobile.intent.action.ACTION_PICK_LOCATION";
+
+    public static final String EXTRA_LATITUDE = "latitude";
+    public static final String EXTRA_LONGITUDE = "longitude";
     
     /**
      * The Android ringtone manager returns a null Uri for silent. 
