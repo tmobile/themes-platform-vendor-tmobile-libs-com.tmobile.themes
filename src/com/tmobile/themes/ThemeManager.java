@@ -40,6 +40,7 @@ DEVICE YOU PURCHASE FROM T-MOBILE USA, INC., AND TO THE EXTENT PERMITTED BY LAW.
 package com.tmobile.themes;
 
 import android.content.Intent;
+import android.net.Uri;
 
 public interface ThemeManager {
 
@@ -104,5 +105,9 @@ public interface ThemeManager {
     public static final String EXTRA_RINGTONE_URI = "com.tmobile.intent.extra.theme.RINGTONE_URI";
     public static final String EXTRA_NOTIFICATION_RINGTONE_URI = "com.tmobile.intent.extra.theme.NOTIFICATION_RINGTONE_URI";
 
-    
+    /**
+     * The Android ringtone manager returns a null Uri for silent.
+     * Use this Uri in the local provider to better track silent.
+     */
+    public static final Uri SILENT_RINGTONE_URI = Uri.parse("content://com.tmobile.thememanager/ringtone/silent");
 }
