@@ -26,7 +26,7 @@ import android.net.Uri;
 /**
  * Simple data access object designed to wrap a cursor returned from any of the
  * Themes class APIs.  Can be used efficiently with a custom CursorAdapter.
- * 
+ *
  * <h2>Usage</h2>
  * <p>Here is an example of looping through a Cursor with ThemeItem:</p>
  * <pre  class="prettyprint">
@@ -155,12 +155,6 @@ public class ThemeItem extends AbstractDAOItem {
         return mCursor.getInt(mColumnIsDRM) != 0;
     }
 
-    /** @deprecated */
-    public int getResourceId(Context context) {
-        return CustomTheme.getStyleId(context, getPackageName(),
-                getThemeId());
-    }
-
     /**
      * @return the String Theme Id
      */
@@ -268,7 +262,7 @@ public class ThemeItem extends AbstractDAOItem {
         return mCursor.getInt(mColumnIsSystem) == 0;
     }
 
-    /** 
+    /**
      * @return true if this theme is currently applied
      */
     public boolean isApplied() {

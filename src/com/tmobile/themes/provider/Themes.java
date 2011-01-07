@@ -58,16 +58,6 @@ public class Themes {
     }
 
     /**
-     * Gets the {@link Uri} for the default theme.
-     * @param context the context of the caller.
-     * @return the default theme {@link Uri}.
-     */
-    public static Uri getDefaultThemeUri(Context context) {
-        CustomTheme def = CustomTheme.getDefault();
-        return getThemeUri(context, def.getThemePackageName(), def.getThemeId());
-    }
-
-    /**
      * Gets a {@link Cursor} for all themes in the provider. Uses the default Projection.
      * @param context the context of the caller.
      * @return a {@link Cursor} for all themes in the provider or null if provider is empty.
