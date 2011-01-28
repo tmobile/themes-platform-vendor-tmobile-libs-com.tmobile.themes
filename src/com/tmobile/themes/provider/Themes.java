@@ -212,5 +212,29 @@ public class Themes {
         public static final String PREVIEW_URI = "preview_uri";
 
         public static final String IS_SYSTEM = "system";
+
+        /**
+         * Flag indicating whether this theme has been compiled with assets for
+         * the current host system's display density.
+         * <p>
+         * Because the platform build system by default excludes assets for
+         * densities other than the platform target a lot of themes being
+         * produced and published in the market lack mdpi assets and would
+         * simply crash on mdpi handsets. This flag was introduced to provide a
+         * meaningful error message when the user attempts to apply such a
+         * theme.
+         */
+        public static final String HAS_HOST_DENSITY = "has_host_density";
+
+        /**
+         * Flag indicating whether this theme has bene compiled with the
+         * expected 0x0a package scope with the special modified aapt provided
+         * in the current build system.
+         * <p>
+         * If themes are compiled using the standard SDK they will have the 0x7f
+         * package scope and will create conflicts with regular app packages
+         * (ultimately causing crashes after the theme is applied).
+         */
+        public static final String HAS_THEME_PACKAGE_SCOPE = "has_theme_package_scope";
     }
 }

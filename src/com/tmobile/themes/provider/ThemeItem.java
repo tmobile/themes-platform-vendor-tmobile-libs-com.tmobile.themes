@@ -62,6 +62,8 @@ public class ThemeItem extends AbstractDAOItem {
     private int mColumnIsSystem;
     private int mColumnIsApplied;
     private int mColumnPreviewUri;
+    private int mColumnHasHostDensity;
+    private int mColumnHasThemePackageScope;
 
     private static final AbstractDAOItem.Creator<ThemeItem> CREATOR =
             new AbstractDAOItem.Creator<ThemeItem>() {
@@ -108,6 +110,8 @@ public class ThemeItem extends AbstractDAOItem {
         mColumnIsSystem = c.getColumnIndex(ThemeColumns.IS_SYSTEM);
         mColumnIsApplied = c.getColumnIndex(ThemeColumns.IS_APPLIED);
         mColumnPreviewUri = c.getColumnIndex(ThemeColumns.PREVIEW_URI);
+        mColumnHasHostDensity = c.getColumnIndex(ThemeColumns.HAS_HOST_DENSITY);
+        mColumnHasThemePackageScope = c.getColumnIndex(ThemeColumns.HAS_THEME_PACKAGE_SCOPE);
     }
 
     /**
@@ -267,6 +271,22 @@ public class ThemeItem extends AbstractDAOItem {
      */
     public boolean isApplied() {
         return mCursor.getInt(mColumnIsApplied) != 0;
+    }
+
+    /**
+     * @return true if this theme has assets compiled for the current host's
+     *         display ensity.
+     */
+    public boolean hasHostDensity() {
+        return mCursor.getInt(mColumnHasHostDensity) != 0;
+    }
+
+    /**
+     * @return true if this theme has assets compiled in the theme package scope
+     *         (0x0a as opposed to 0x7f).
+     */
+    public boolean hasThemePackageScope() {
+        return mCursor.getInt(mColumnHasThemePackageScope) != 0;
     }
 
     /**
