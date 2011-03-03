@@ -245,10 +245,18 @@ public class ThemeItem extends AbstractDAOItem {
 
     /**
      * A theme may specify a preview image to represent a theme.
+     *
+     * @param orientation the screen orientation for which a preview image is
+     * desired.  Orientation values come from {@link android.content.res.Configuration}
      * @return the preview image uri, or null if this theme doesn't specify one.
      */
-    public Uri getPreviewUri() {
-        return parseUriNullSafe(mCursor.getString(mColumnPreviewUri));
+    public Uri getPreviewUri(int orientation) {
+        Uri uri = parseUriNullSafe(mCursor.getString(mColumnPreviewUri));
+        if (null != uri) {
+            uri = uri.buildUpon().appendQueryParameter(Themes.KEY_ORIENTATION,
+                    String.valueOf(orientation)).build();
+        }
+        return uri;
     }
 
     /** @deprecated */
