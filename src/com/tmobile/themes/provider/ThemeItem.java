@@ -30,16 +30,13 @@ import android.net.Uri;
  * <h2>Usage</h2>
  * <p>Here is an example of looping through a Cursor with ThemeItem:</p>
  * <pre  class="prettyprint">
- *      Cursor c = Themes.listThemes(myContext);
- *      ThemeItem item = ThemeItem(c);
- *      if (item != null) {
- *          try {
- *              do {
- *                  //Do something with the item
- *              } while (c.moveToNext());
- *          } finally {
- *              item.close();
+ *      ThemeItem item = new ThemeItem(Themes.listThemes(myContext));
+ *      try {
+ *          while (c.moveToNext()) {
+ *              //Do something with the item
  *          }
+ *      } finally {
+ *          item.close();
  *      }
  * </pre>
  */
@@ -74,14 +71,14 @@ public class ThemeItem extends AbstractDAOItem {
     };
 
     /**
-     * {@inheritDoc}
+     * @see AbstractDAOItem.Creator#newInstance(Context, Uri)
      */
     public static ThemeItem getInstance(Context context, Uri uri) {
         return CREATOR.newInstance(context, uri);
     }
 
     /**
-     * {@inheritDoc}
+     * @see AbstractDAOItem.Creator#newInstance(Cursor)
      */
     public static ThemeItem getInstance(Cursor c) {
         return CREATOR.newInstance(c);
